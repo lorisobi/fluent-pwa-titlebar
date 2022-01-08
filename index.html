@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root {
+        --background: #ebebeb;
+        --foreground: #222222;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --foreground: #ebebeb;
+          --background: #222222;
+        }
+      }
+
+      #fluent-titlebar-heading {
+        color: var(--foreground);
+        font-family: "Segoe UI Variable", sans-serif;
+        font-variation-settings: "wght" 475;
+        font-size: 12px;
+        margin-left: 11px;
+      }
+      #fluent-titlebar-icon {
+        height: 22px;
+        width: 22px;
+      }
+      #fluent-titlebar {
+        position: fixed;
+        background: var(--background);
+        left: env(titlebar-area-x, 0);
+        top: env(titlebar-area-y, 0);
+        width: env(titlebar-area-width, 100%);
+        height: env(titlebar-area-height, 33px);
+        -webkit-app-region: drag;
+        app-region: drag;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      #fluent-titlebar-group {
+        margin-left: 7px;
+        display: flex;
+
+        justify-content: flex-start;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="fluent-titlebar">
+      <div id="fluent-titlebar-group">
+        <img
+          id="fluent-titlebar-icon"
+          alt="Icon"
+          src="data:image/png;base64,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"
+        /><span id="fluent-titlebar-heading">Example App</span>
+      </div>
+    </div>
+    <script>
+      const debounce = (func, wait) => {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      };
+
+      if ("windowControlsOverlay" in navigator) {
+        navigator.windowControlsOverlay.addEventListener(
+          "geometrychange",
+          debounce((e) => {
+            // Detect if the Window Controls Overlay is visible.
+            const isOverlayVisible = navigator.windowControlsOverlay.visible;
+            // Get the size and position of the title bar area.
+            const titleBarRect = e.titlebarAreaRect;
+
+            console.log(
+              `The overlay is ${
+                isOverlayVisible ? "visible" : "hidden"
+              }, the title bar width is ${titleBarRect.width}px`
+            );
+          }, 200)
+        );
+      }
+    </script>
+  </body>
+</html>
