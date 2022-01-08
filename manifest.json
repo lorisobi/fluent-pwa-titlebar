@@ -1,0 +1,9 @@
+{
+  "name": "The Fluent Titlebar Example App",
+  "short_name": "Example App",
+  "theme_color": "#222222",
+  "background_color": "#222222",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}
